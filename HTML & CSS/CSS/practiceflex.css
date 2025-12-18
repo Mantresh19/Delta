@@ -1,0 +1,39 @@
+.container {
+    height: 400px;
+    width: 400px;
+    background-color: bisque;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: coral;
+    font-size: 50px;
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar {
+    height: 50px;
+    width: 350px;
+    background-color: pink;
+    border: 2px solid teal;
+    border-radius: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
+
+.nav-item {
+    height: 50px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}

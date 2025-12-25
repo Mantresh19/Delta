@@ -303,63 +303,22 @@ a {
 .album-img {
     height: 3.5rem;
     width: 3.5rem;
-    margin: 0;
-    flex: 0 0 auto;
 }
 
 .music-name {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .title-row {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.music-name a {
-    display: block;
-    text-decoration: none;
-}
-
-.music-name .title {
-    font-size: 14px;
-    margin: 0;
-}
-
-.music-name .artist {
-    font-size: 12px;
-    margin: 0;
-    margin-top: 2px;
-    opacity: 0.7;
-}
-
-.album-icons {
-    display: flex;
-    gap: 12px;
-    margin-left: 16px;
-}
-
-.album-icons i {
-    font-size: 1rem;
-    opacity: 0.7;
-    cursor: pointer;
-}
-
-.album-icons i:hover {
-    opacity: 1;
+    gap: 16px;
 }
 
 .title {
     font-size: 14px;
     white-space: nowrap;
-}
-
-.title-row {
-    display: flex;
-    align-items: center;
 }
 
 .artist {
@@ -368,12 +327,8 @@ a {
     margin-top: 2px;
 }
 
-.title-row i {
-    font-size: 14px;
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.title-row i:hover {
-    opacity: 1;
+.album-icons {
+    display: flex;
+    gap: 12px;
+    margin-left: 16px;
 }

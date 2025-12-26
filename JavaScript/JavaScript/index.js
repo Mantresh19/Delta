@@ -15,3 +15,7 @@ console.log(a%b);
 console.log(a**b);
 console.log(a++);
 console.log(++a);
+
+//Operators 
+let age = 18;
+console.log(age > 18);

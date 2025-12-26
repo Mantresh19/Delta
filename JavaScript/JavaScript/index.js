@@ -41,17 +41,25 @@
 // }
 
 // Nested If-else
-let marks = 79;
+// let marks = 79;
 
-if (marks>=33) {
-    console.log("Pass");
-    if(marks>=80){
-        console.log("Woww!!");
-    }
-    else{
-        console.log("Grade A");
-    }
-}
-else {
-    console.log("Bhakk saley")
-}
+// if (marks>=33) {
+//     console.log("Pass");
+//     if(marks>=80){
+//         console.log("Woww!!");
+//     }
+//     else{
+//         console.log("Grade A");
+//     }
+// }
+// else {
+//     console.log("Bhakk saley")
+// }
+
+//Alert
+// alert("This is a alet")
+// console.alert("This is an error")
+
+// Input
+let firstname = prompt("Enter your name: ");
+console.log(firstname);

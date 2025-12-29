@@ -26,20 +26,26 @@
 // };
 
 // Array of objects
-let arr = [
-    {
-        Name: 'Mantresh',
-        Age: 20,
-        City: 'London'
-    },
-    {
-        Name: 'Bise',
-        Age: 21,
-        City: 'Nashik'
-    },
-    {
-        Name: 'Pakya',
-        Age: 100,
-        City: 'Mumbai'
-    }
-]
+// let arr = [
+//     {
+//         Name: 'Mantresh',
+//         Age: 20,
+//         City: 'London'
+//     },
+//     {
+//         Name: 'Bise',
+//         Age: 21,
+//         City: 'Nashik'
+//     },
+//     {
+//         Name: 'Pakya',
+//         Age: 100,
+//         City: 'Mumbai'
+//     }
+// ]
+
+// Math function
+// let num = Math.random();
+// num = num * 10;
+// num = Math.floor(num);
+// num = num + 1;

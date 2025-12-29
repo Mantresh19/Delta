@@ -49,3 +49,21 @@
 // num = num * 10;
 // num = Math.floor(num);
 // num = num + 1;
+
+// Guessing game
+const range = prompt('Please enter range of your number');
+const random = Math.floor(Math.random() * range) + 1;
+let guess = prompt('Enter your guess');
+
+while(true) {
+    if (guess == 'quit') {
+        break;
+    }
+    if (guess == random) {
+        console.log('Congoo!!!');
+        break;
+    }
+    else {
+        guess = prompt('Wrong guess');
+    }
+}

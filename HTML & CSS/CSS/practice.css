@@ -1,3 +1,7 @@
+.main {
+    display: flex;
+    gap: 20px;
+}
 .card {
     width: 300px;
     /* margin: 0 auto; */
@@ -13,5 +17,21 @@
 }
 
 .card-body {
+    padding: 0 0 0 10px;
+}
+
+.banner {
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.imgg {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+.card-text {
     padding: 0 0 0 10px;
 }

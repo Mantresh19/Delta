@@ -99,17 +99,35 @@
 // unique(str);
 
 // Q3
-let country = ["Australia","Germany","UnitedStatesofAmerica"];
+// let country = ["Australia","Germany","UnitedStatesofAmerica"];
 
-function longname(country) {
-    let ansIdx = 0;
-    for (let i=0; i<country.length; i++){
-        let ansLen = country[ansIdx].length;
-        let curLen = country[i].length;
-        if (curLen > ansLen){
-            ansIdx = i;
+// function longname(country) {
+//     let ansIdx = 0;
+//     for (let i=0; i<country.length; i++){
+//         let ansLen = country[ansIdx].length;
+//         let curLen = country[i].length;
+//         if (curLen > ansLen){
+//             ansIdx = i;
+//         }
+//     }
+//     return country[ansIdx];
+// }
+// longname(country);
+
+// Q4
+let vovels = 'apnacollege';
+function countvovels(vovels){
+    let count = 0;
+    for (let i=0; i<vovels.length; i++) {
+        if (
+            vovels.charAt(i) == 'a' ||
+            vovels.charAt(i) == 'e' ||
+            vovels.charAt(i) == 'i' ||
+            vovels.charAt(i) == 'o' ||
+            vovels.charAt(i) == 'u'
+        ){
+        count++;
         }
     }
-    return country[ansIdx];
+    return count;
 }
-longname(country);

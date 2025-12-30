@@ -70,14 +70,30 @@
 
 // Assignment qs
 
-let arr = [1,2,3,4,5,6,7];
-let num = 5;
+// Q1
+// let arr = [1,2,3,4,5,6,7];
+// let num = 5;
 
-function getelements(arr, num) {
-    for (let i=0; i<arr.length; i++) {
-        if (arr[i]>num) {
-            console.log(arr[i]);
+// function getelements(arr, num) {
+//     for (let i=0; i<arr.length; i++) {
+//         if (arr[i]>num) {
+//             console.log(arr[i]);
+//         }
+//     }
+// }
+// getelements(arr, num);
+
+// Q2
+let str = 'abcdabcdefgggh';
+
+function unique(str){
+    let ans = '';
+    for (let i=0; i<str.length; i++){
+        let currchar = str[i];
+        if (ans.indexOf(currchar)== -1){
+            ans+=currchar;
         }
     }
+    return ans;
 }
-getelements(arr, num);
+unique(str);

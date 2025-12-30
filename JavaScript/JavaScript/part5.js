@@ -115,19 +115,28 @@
 // longname(country);
 
 // Q4
-let vovels = 'apnacollege';
-function countvovels(vovels){
-    let count = 0;
-    for (let i=0; i<vovels.length; i++) {
-        if (
-            vovels.charAt(i) == 'a' ||
-            vovels.charAt(i) == 'e' ||
-            vovels.charAt(i) == 'i' ||
-            vovels.charAt(i) == 'o' ||
-            vovels.charAt(i) == 'u'
-        ){
-        count++;
-        }
-    }
-    return count;
-}
+// let vovels = 'apnacollege';
+// function countvovels(vovels){
+//     let count = 0;
+//     for (let i=0; i<vovels.length; i++) {
+//         if (
+//             vovels.charAt(i) == 'a' ||
+//             vovels.charAt(i) == 'e' ||
+//             vovels.charAt(i) == 'i' ||
+//             vovels.charAt(i) == 'o' ||
+//             vovels.charAt(i) == 'u'
+//         ){
+//         count++;
+//         }
+//     }
+//     return count;
+// }
+
+// Q5
+// let start = 100;
+// let end = 200;
+
+// function random(start, end){
+//     let diff = end - start;
+//     return Math.floor(Math.random() * diff) + start;
+// }

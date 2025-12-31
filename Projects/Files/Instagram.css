@@ -3,27 +3,38 @@
   src: url(./Billabong.otf) format('truetype');
 }
 
+* { box-sizing: border-box; }
+
 body {
     background-color: black;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
 }
+
+.main {
+    display: flex;
+}
+
+/* Left Sidebar */
 
 .left-sidebar {
     /* background-color: goldenrod; */
-    width: 210px;
-    height: 836px;
-    padding: 8px 12px 20px 12px;
-    border-right: 1px solid rgb(56, 56, 56)
+    /* width: 244px; */
+    width: 15.25rem;
+    height: 100vh;
+    /* padding: 8px 12px; */
+    padding: 0.5rem 0.75rem;
+    border-right: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
 }
 
-.logo {
-    font-family: 'Billabong', cursive;
-    font-size: 25px;
-    font-weight: bolder;
-    padding: 25px 12px 16px 12px;
-    color: white;
-    height: 32px;
-    width: 196px;
+.logo{
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: 25px;
+    left: 10px;
 }
 
 .nav-list {
@@ -31,11 +42,11 @@ body {
     flex-direction: column;
     gap: 35px;
     list-style: none;
-    padding: 12px;
+    padding: 60px 12px 12px 12px;
+    margin: 0;
 }
 
 .nav-item {
-    margin: 4px 0;
     text-decoration: none;
     color: white;
 }
@@ -48,4 +59,83 @@ body {
   margin-left: 16px;
   font-size: 16px;
   font-weight: bolder;
+}
+
+.navlist-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    margin-top: auto;
+    padding: 12px;
+    position: relative;
+    bottom: 15px;
+}
+
+.navitem-bottom {
+    text-decoration: none;
+    color: white;
+}
+
+.navitem-bottom span {
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.navitem-bottom i {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+/* Middle Section */
+
+.middle {
+    width: 925px;
+    height: 100vh;
+    /* background-color: beige; */
+}
+.content-main {
+    /* background-color: aquamarine; */
+    height: 100vh;
+    width: 630px;
+    position: relative;
+    left: 225px;
+    padding-top: 13px;
+}
+.stories {
+    /* background-color: brown; */
+    height: 108px;
+    display: flex;
+    padding: 8px 9px;
+    gap: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.stories::-webkit-scrollbar{ display:none; }
+
+.story {
+    width: 66px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 68px;
+    text-decoration: none;
+    color: #fff;
+    gap: 3px;
+    font-size: 11px;
+}
+.story-ring {
+    width: 80px;
+    height: 84px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.story-ring img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

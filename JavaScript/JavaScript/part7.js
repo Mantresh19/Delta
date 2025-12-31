@@ -65,3 +65,22 @@
 //         }, 2000);
 //     }
 // }
+
+// Qs
+// const square = (n) => n*n;
+
+// Qs
+// setInterval(() => {
+//     console.log("hellow world")
+// }, 2000);
+
+// Qs
+const arrayAvg = (arr) => {
+    let total = 0;
+    for(let number of arr) {
+        total += number;
+    }
+    return total / arr.length;
+};
+let arr = [1,2,3,4,5,6];
+console.log(arrayAvg(arr));

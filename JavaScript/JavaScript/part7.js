@@ -35,8 +35,33 @@
 // const mul = (a, b) => a * b;
 
 // Function timeout
-console.log('Hi there');
-setTimeout(() => {
-    console.log('Apna college');
-}, 4000);
-console.log('Welcome to');
+// console.log('Hi there');
+// setTimeout(() => {
+//     console.log('Apna college');
+// }, 4000);
+// console.log('Welcome to');
+
+// SetInterval
+// console.log('hii');
+// setInterval((id) => {
+//     console.log('hello');
+// }, 4000);
+// console.log('welcome');
+
+// This function with arrow and function
+// const student = {
+//     name: 'Man',
+//     age: 20,
+//     prop: this,
+
+//     getInfo1: function() {
+//         setTimeout(() => {
+//             console.log(this.name);
+//         }, 2000);
+//     },
+//     getInfo2: function(){
+//         setTimeout(function(){
+//             console.log(this);
+//         }, 2000);
+//     }
+// }

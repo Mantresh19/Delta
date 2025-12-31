@@ -75,12 +75,18 @@
 // }, 2000);
 
 // Qs
-const arrayAvg = (arr) => {
-    let total = 0;
-    for(let number of arr) {
-        total += number;
-    }
-    return total / arr.length;
-};
-let arr = [1,2,3,4,5,6];
-console.log(arrayAvg(arr));
+// const arrayAvg = (arr) => {
+//     let total = 0;
+//     for(let number of arr) {
+//         total += number;
+//     }
+//     return total / arr.length;
+// };
+// let arr = [1,2,3,4,5,6];
+// console.log(arrayAvg(arr));
+
+// Qs
+let n = 4;
+const isEven = (n) => {
+    return (n%2==0);
+}

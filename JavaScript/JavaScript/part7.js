@@ -22,3 +22,14 @@
 // }
 // console.log('Hellow2');
 // console.log('Hellow2');
+
+// Arrow function
+// const add = (a, b) => {
+//     return(a + b);
+// };
+
+// const cube = n => {
+//     return(n*n*n);
+// };
+
+// const mul = (a, b) => a * b;

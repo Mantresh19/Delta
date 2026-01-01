@@ -84,9 +84,9 @@
 // console.log(min);
 
 // Spread
-const data = {
-    email: 'mantresh19@gmail.com',
-    id: '@123'
-}
+// const data = {
+//     email: 'mantresh19@gmail.com',
+//     id: '@123'
+// }
 
-let datacopy = {...data}
+// let datacopy = {...data, id:123}

@@ -44,3 +44,10 @@
 // let gpa = arr.map((el) =>{
 //     return el.Marks/10;
 // })
+
+// Filter 
+// let arr = [1,2,3,4,5,6,7,8];
+
+// let filter = arr.filter((el) => {
+//     return el > 5;
+// })

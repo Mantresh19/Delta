@@ -51,3 +51,8 @@
 // let filter = arr.filter((el) => {
 //     return el > 5;
 // })
+
+// Reduce
+let arr = [2,3,4,1];
+
+let reducee = arr.reduce((res, el) => res + el)

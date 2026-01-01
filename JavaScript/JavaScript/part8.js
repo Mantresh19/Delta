@@ -9,13 +9,17 @@
 //     console.log(el);
 // })
 
-let arr = [{
-    name: 'Prabhu',
-    Marks: 89,
-}, {
-    name: 'Prabhu',
-    Marks: 89,
-}, {
-    name: 'Prabhu',
-    Marks: 89,
-}];
+// let arr = [{
+//     name: 'Prabhu',
+//     Marks: 89,
+// }, {
+//     name: 'Prabhu',
+//     Marks: 89,
+// }, {
+//     name: 'Prabhu',
+//     Marks: 89,
+// }];
+
+// arr.forEach((student) => {
+//     console.log(student.Marks);
+// })

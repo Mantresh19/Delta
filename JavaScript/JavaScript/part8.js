@@ -67,3 +67,18 @@
 // })
 
 // console.log(max);
+
+// Qs
+let nums = [10,20,30,40,50];
+let ans = nums.every((el) => el % 10 == 0);
+console.log(ans);
+
+// Qs
+let num = [1,2,3];
+
+let min = num.reduce((min, el) => {
+    if (min < el) {
+        return min;
+    } else {return el}
+})
+console.log(min);

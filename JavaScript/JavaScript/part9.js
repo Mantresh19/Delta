@@ -24,5 +24,16 @@
 // }
 
 // Tag Names
-document.getElementsByTagName('p');
-console.dir(document.getElementsByTagName('p'))
+// document.getElementsByTagName('p');
+// console.dir(document.getElementsByTagName('p'))
+
+// Querry selector
+console.dir(document.querySelector('h1'))
+
+console.log(document.querySelector('.oldImg'))
+
+console.log(document.querySelector('boxLink'))
+
+console.log(document.querySelector('div h4'))
+
+console.log(document.querySelectorAll('p')) // Will select everything on the page

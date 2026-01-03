@@ -50,3 +50,11 @@
 
 // Manipulating styles
 let heading = document.querySelector('h1');
+console.log(heading.style)
+heading.style.color = 'purple';
+heading.style.backgroundColor = 'yellow'
+
+let pubinfo = document.querySelectorAll('.box a');
+for (let i=0; i<pubinfo.length; i++) {
+    pubinfo[i].style.color = "orange";
+}

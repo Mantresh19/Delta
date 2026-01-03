@@ -28,12 +28,25 @@
 // console.dir(document.getElementsByTagName('p'))
 
 // Querry selector
-console.dir(document.querySelector('h1'))
+// console.dir(document.querySelector('h1'))
 
-console.log(document.querySelector('.oldImg'))
+// console.log(document.querySelector('.oldImg'))
 
-console.log(document.querySelector('boxLink'))
+// console.log(document.querySelector('boxLink'))
 
-console.log(document.querySelector('div h4'))
+// console.log(document.querySelector('div h4'))
 
-console.log(document.querySelectorAll('p')) // Will select everything on the page
+// console.log(document.querySelectorAll('p')) // Will select everything on the page
+
+// console.dir(document.querySelector('p'))
+// let para = document.querySelector('p');
+// console.log(para);  
+
+// Get & Set attribute 
+
+// let image = document.querySelector('img');
+// image.getAttribute('id')
+// image.setAttribute('id', 'ogimg');
+
+// Manipulating styles
+let heading = document.querySelector('h1');

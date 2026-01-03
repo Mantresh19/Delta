@@ -49,12 +49,24 @@
 // image.setAttribute('id', 'ogimg');
 
 // Manipulating styles
-let heading = document.querySelector('h1');
-console.log(heading.style)
-heading.style.color = 'purple';
-heading.style.backgroundColor = 'yellow'
+// let heading = document.querySelector('h1');
+// console.log(heading.style)
+// heading.style.color = 'purple';
+// heading.style.backgroundColor = 'yellow'
 
-let pubinfo = document.querySelectorAll('.box a');
-for (let i=0; i<pubinfo.length; i++) {
-    pubinfo[i].style.color = "orange";
-}
+// let pubinfo = document.querySelectorAll('.box a');
+// for (let i=0; i<pubinfo.length; i++) {
+//     pubinfo[i].style.color = "orange";
+// }
+
+// Toggle checks if some property of css is applied on element or not 
+// If it is applied then it will remove that property and if not then add it
+
+// Adding elements on the page
+let newp = document.createElement('p');
+newp.innerText = 'Hi I am a p';
+
+// Adding it inside html
+
+let body = document.querySelector('body');
+body.appendChild(newp);

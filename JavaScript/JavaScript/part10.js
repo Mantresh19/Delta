@@ -52,3 +52,13 @@
 //     let color = `rgb(${red}, ${green}, ${blue})`;
 //     return color;
 // }
+
+let para = document.querySelector('p');
+para.addEventListener('click', function(){
+    console.log("Para was clicked")
+})
+
+let box = document.querySelector('.ll');
+box.addEventListener('mouseenter', function(){
+    console.log('Mouseeenter')
+})

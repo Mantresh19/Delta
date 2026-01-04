@@ -1,9 +1,16 @@
 body {
     text-align: center;
 }
-div {
+/* div {
     height: 200px;
     width: 100vh;
     border: 1px solid black;
     margin: auto;
+} */
+
+.ll {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    background-color: pink;
 }

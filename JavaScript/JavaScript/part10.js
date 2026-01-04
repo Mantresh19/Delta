@@ -91,16 +91,37 @@
 
 // Another event
 
-let input = document.querySelector('input');
-input.addEventListener('keydown', function(event){
-    console.log('key = ', event.code);
-    if (event.code == 'ArrowUp') {
-        console.log('forward')
-    } else if (event.code == "ArrowRight") {
-        console.log("Character moves right")
-    } else if (event.code == "ArrowDown") {
-        console.log('Character moves backward')
-    } else if (event.code == "ArrowLeft") {
-        console.log("Character moves left")
-    }
+// let input = document.querySelector('input');
+// input.addEventListener('keydown', function(event){
+//     console.log('key = ', event.code);
+//     if (event.code == 'ArrowUp') {
+//         console.log('forward')
+//     } else if (event.code == "ArrowRight") {
+//         console.log("Character moves right")
+//     } else if (event.code == "ArrowDown") {
+//         console.log('Character moves backward')
+//     } else if (event.code == "ArrowLeft") {
+//         console.log("Character moves left")
+//     }
+// })
+
+// let form = document.querySelector('form')
+// form.addEventListener('submit', function(event){
+//     event.preventDefault();
+//     let inp = form.querySelector('input')
+//     console.dir(inp)
+//     console.log(inp.value)
+// })
+
+let form = document.querySelector('form')
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+    
+    let user = this.elements[0];
+    let password = this.elements[1];
+
+    console.log(user.value)
+    console.log(password.value)
+
+    console.log(`HI ${user.value}, this is your pass ${password.value}`)
 })

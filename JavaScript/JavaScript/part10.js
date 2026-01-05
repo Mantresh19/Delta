@@ -136,22 +136,63 @@
 
 // Event bubbling
 
-let div = document.querySelector('div');
-let ul = document.querySelector('ul');
-let lis = document.querySelectorAll('li');
+// let div = document.querySelector('div');
+// let ul = document.querySelector('ul');
+// let lis = document.querySelectorAll('li');
 
-div.addEventListener('click', function(){
-    console.log('div was clicked');
+// div.addEventListener('click', function(){
+//     console.log('div was clicked');
+// });
+
+// ul.addEventListener('click', function(event){
+//     event.stopPropagation();
+//     console.log('ul was clicked');
+// });
+
+// for (li of lis) {
+//     li.addEventListener('click', function (event) {
+//       event.stopPropagation();
+//       console.log('li was clicked');
+//     });
+// }
+
+
+// To-do list
+let inp = document.querySelector('input');
+let btn = document.querySelector('button');
+let unordered = document.querySelector('ul');
+
+btn.addEventListener('click', function() {
+    let item = document.createElement('li');
+    item.classList.add('todo-item');
+    item.innerText = inp.value;
+
+    let del = document.createElement('input');
+    del.type = 'radio';
+    del.classList.add('delete');
+    
+    item.appendChild(del);
+    unordered.appendChild(item);
+    console.log(inp.value);
+    inp.value = '';
 });
 
-ul.addEventListener('click', function(event){
-    event.stopPropagation();
-    console.log('ul was clicked');
+unordered.addEventListener('change', function(event) {
+    if (!event.target.classList.contains('delete')) return;
+    let item = event.target.closest('li');
+    if (!item) return;
+
+    item.classList.add('fade-out');
+    item.addEventListener('transitionend', function () {
+        item.remove();
+    }, { once: true });
 });
 
-for (li of lis) {
-    li.addEventListener('click', function (event) {
-      event.stopPropagation();
-      console.log('li was clicked');
-    });
-}
+// let dels = document.querySelectorAll('.delete');
+// for (del of dels) {
+//     del.addEventListener('click', function() {
+//         let par = this.parentElement;
+//         console.log(par);
+//         par.remove();
+//     })
+// }

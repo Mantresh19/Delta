@@ -61,3 +61,19 @@ function savetoDb (data) {
         } else (reject("Rejected"))
     });
 }
+// Then & catch
+savetoDb("Apna collge")
+.then(() => {
+    console.log("Promise was resolved");
+    return savetoDb("Apna college is a data");
+})
+.then(() => {
+    console.log("data2 saved");
+    return savetoDb("Apna college is also a data");
+})
+.then(() => {
+    console.log("Data 3 saved")
+})
+.catch(() => {
+    console.log("Promise was rejected")
+})

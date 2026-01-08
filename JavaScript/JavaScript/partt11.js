@@ -182,14 +182,24 @@
 //     console.log('bye');
 // }
 
+let btn = document.querySelector('button');
+btn.addEventListener('click', async() => {
+    let fact = await getFacts();
+    console.log(fact);
+    let p = document.querySelector('#factss');
+    p.innerText = fact;
+});
+
 // Axios
 let url = 'https://catfact.ninja/fact';
+
 async function getFacts() {
     try {
         let res = await axios.get(url);
-        console.log(res.data.fact);
+        return (res.data.fact);
     } catch (err) {
         console.log('catch err', err);
+        return res.data.fact;
     }
 }
 

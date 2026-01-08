@@ -11,37 +11,37 @@
 
 // Callback hell
 
-h1 = document.querySelector('h1');
+// h1 = document.querySelector('h1');
 
-function changecolor(color,delay) {
-    return new Promise((resolve, reject) => {
-        let num = Math.floor(Math.random() * 5 ) + 1;
-        if (num > 3) {
-            reject ("Promise rejected");
-        }
-        setTimeout(() => {
-        h1.style.color = color;
-        resolve("Color changed");
-    },delay);
-    });
-}
+// function changecolor(color,delay) {
+//     return new Promise((resolve, reject) => {
+//         let num = Math.floor(Math.random() * 5 ) + 1;
+//         if (num > 3) {
+//             reject ("Promise rejected");
+//         }
+//         setTimeout(() => {
+//         h1.style.color = color;
+//         resolve("Color changed");
+//     },delay);
+//     });
+// }
 
-async function demo() {
-    try {
-        await changecolor('red', 1000);
-        await changecolor('darkgreen', 1000);
-        await changecolor('blue', 1000);
-        await changecolor('orange', 1000);
-    } catch (err){
-        console.log("error")
-        console.log(err);
-    }
+// async function demo() {
+//     try {
+//         await changecolor('red', 1000);
+//         await changecolor('darkgreen', 1000);
+//         await changecolor('blue', 1000);
+//         await changecolor('orange', 1000);
+//     } catch (err){
+//         console.log("error")
+//         console.log(err);
+//     }
 
-    let a = 5;
-    let b = 10;
-    console.log(a+b);
+//     let a = 5;
+//     let b = 10;
+//     console.log(a+b);
 
-}
+// }
 
 // changecolor('red', 1000)
 // .then (() => {
@@ -152,3 +152,15 @@ async function demo() {
 //     await getNum();
 //     await getNum();
 // }
+
+// API
+let jsonRes = '{"fact":"Baking chocolate is the most dangerous chocolate to your cat.","length":61}'
+
+let validRes = JSON.parse(jsonRes);
+console.log(validRes.fact);
+
+let student = {
+    name: 'Mantresh',
+    Marks: 95
+}
+console.log(JSON.stringify(student))

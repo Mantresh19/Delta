@@ -182,26 +182,26 @@
 //     console.log('bye');
 // }
 
-let btn = document.querySelector('button');
-btn.addEventListener('click', async() => {
-    let fact = await getFacts();
-    console.log(fact);
-    let p = document.querySelector('#factss');
-    p.innerText = fact;
-});
+// let btn = document.querySelector('button');
+// btn.addEventListener('click', async() => {
+//     let fact = await getFacts();
+//     console.log(fact);
+//     let p = document.querySelector('#factss');
+//     p.innerText = fact;
+// });
 
-// Axios
-let url = 'https://catfact.ninja/fact';
+// // Axios
+// let url = 'https://catfact.ninja/fact';
 
-async function getFacts() {
-    try {
-        let res = await axios.get(url);
-        return (res.data.fact);
-    } catch (err) {
-        console.log('catch err', err);
-        return res.data.fact;
-    }
-}
+// async function getFacts() {
+//     try {
+//         let res = await axios.get(url);
+//         return (res.data.fact);
+//     } catch (err) {
+//         console.log('catch err', err);
+//         return res.data.fact;
+//     }
+// }
 
 // fetch(url)
 // .then ((res) => {
@@ -221,3 +221,27 @@ async function getFacts() {
 // .catch((err) => {
 //     console.log(err)
 // })
+
+
+// Dog API 
+let btn = document.querySelector('button');
+let url2 = 'https://dog.ceo/api/breeds/image/random';
+
+btn.addEventListener('click', async() => {
+    let link = await getImage();
+    console.log(link);
+    let img = document.querySelector('#result');
+    img.setAttribute('src', link);
+});
+
+async function getImage() {
+    try {
+        let res = await axios.get(url2);
+        return res.data.message;
+    } catch (err) {
+        console.log('catch err', err);
+        return '/';
+    }
+}
+
+let url = 'http://universities.hipolabs.com/search?name='

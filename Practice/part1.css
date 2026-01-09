@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
 }
@@ -14,6 +17,7 @@ body {
     width: 75px;
     justify-content: center;
     align-items: center;
+    padding-left: 10px;
 }
 
 .fb-back{
@@ -39,9 +43,40 @@ body {
 }
 .srch-icon {
     font-size: 15px;
-    opacity: 0.7;
+    /* opacity: 0.7; */
 }
 
 .middle-icons {
-    align-self: center;
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    gap: 35px;
+}
+.fa-mid {
+    color: white;
+    /* opacity: 0.6; */
+}
+.fa-mid:hover {
+    opacity: 1;
+}
+
+.fa-end {
+    color: white;
+    /* opacity: 0.6; */
+}
+
+.lasticons {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 35px;
+    gap: 5px;
+}
+.icon-border {
+    background-color: #4c4c4c;
+    height: 27px;
+    width: 27px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

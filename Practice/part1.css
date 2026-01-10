@@ -18,6 +18,7 @@ body {
     height: 40px;
     width: 75px;
     align-items: center;
+    padding-left: 10px;
 }
 
 .fb-back{
@@ -48,8 +49,7 @@ body {
 
 .middle-icons {
     display: flex;
-    align-items: center;
-    padding-left: 100px;
+    margin: 0 auto;
     gap: 35px;
 }
 .fa-mid {

@@ -8,6 +8,8 @@ body {
     height: 40px;
     background-color: #242728;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logoandsearch {
@@ -15,9 +17,7 @@ body {
     gap: 4px;
     height: 40px;
     width: 75px;
-    justify-content: center;
     align-items: center;
-    padding-left: 10px;
 }
 
 .fb-back{

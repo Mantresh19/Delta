@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial;
     display: flex;
     justify-content: center;
@@ -31,4 +31,12 @@ button {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+} */
+
+body {
+    text-align: center;
+}
+
+#strength {
+    font-weight: bold;
 }

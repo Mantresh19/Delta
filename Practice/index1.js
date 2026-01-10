@@ -49,3 +49,36 @@
 
 // updateUI();
 
+
+// Password Strength Check
+const passwordInput = document.getElementById("password");
+const strengthText = document.getElementById("strength");
+
+passwordInput.addEventListener('input', () => {
+    const password = passwordInput.value;
+
+    if (password.length === 0) {
+        strengthText.textContent = "Strength: ";
+        strengthText.style.color = "black";
+        return;
+    }
+    if (password.length < 6) {
+        strengthText.textContent = "Strength: Weak";
+        strengthText.style.color = "red";
+    } else if (isOnlyLetters(password)) {
+        strengthText.textContent = "Strength: Medium";
+        strengthText.style.color = "orange";
+    } else {
+        strengthText.textContent = "Strength: Strong";
+        strengthText.style.color = "green"
+    }
+});
+
+const isOnlyLetters = (Text) => {
+    for (let char of Text) {
+        if (!isNaN(char)) {
+            return false;
+        }
+    }
+    return true;
+}

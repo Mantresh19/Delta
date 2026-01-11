@@ -37,9 +37,9 @@ body {
     text-align: center;
 }
 
-#strength {
+/* #strength {
     font-weight: bold;
-}
+} */
 
 
 /* .green {
@@ -51,3 +51,16 @@ body {
 .count{
   font-weight: bolder;
 } */
+
+/* Light theme (default) */
+body {
+  background: white;
+  color: black;
+  font-family: Arial, sans-serif;
+}
+
+/* Dark theme (when JS adds class="dark" on body) */
+body.dark {
+  background: black;
+  color: white;
+}

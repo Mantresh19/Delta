@@ -83,34 +83,71 @@
 
 // Pswrd
 
-const passwordInput = document.getElementById('password');
-const strengthText = document.getElementById('strength');
+// const passwordInput = document.getElementById('password');
+// const strengthText = document.getElementById('strength');
 
-passwordInput.addEventListener('input', () => {
-    const password = passwordInput.value;
+// passwordInput.addEventListener('input', () => {
+//     const password = passwordInput.value;
 
-    if (password.length === 0) {
-        strengthText.textContent = "Strength: ";
-        strengthText.style.color = "black";
-        return;
-    } 
-    if (password.length < 6) {
-        strengthText.textContent = "Strength: Weak";
-        strengthText.style.color = "red";
-    } else if (isOnlyLetters(password)) {
-        strengthText.textContent = "Strength: Medium";
-        strengthText.style.color = "orange";
-    } else {
-        strengthText.textContent = "Strength: Strong";
-        strengthText.style.color = "darkgreen";
-    }
-});
+//     if (password.length === 0) {
+//         strengthText.textContent = "Strength: ";
+//         strengthText.style.color = "black";
+//         return;
+//     } 
+//     if (password.length < 6) {
+//         strengthText.textContent = "Strength: Weak";
+//         strengthText.style.color = "red";
+//     } else if (isOnlyLetters(password)) {
+//         strengthText.textContent = "Strength: Medium";
+//         strengthText.style.color = "orange";
+//     } else {
+//         strengthText.textContent = "Strength: Strong";
+//         strengthText.style.color = "darkgreen";
+//     }
+// });
 
-const isOnlyLetters = (text) => {
-    for (let char of text) {
-        if (char >= "0" && char <= "9") {
-            return false;
-        }
-    }
-    return true;
+// const isOnlyLetters = (text) => {
+//     for (let char of text) {
+//         if (char >= "0" && char <= "9") {
+//             return false;
+//         }
+//     }
+//     return true;
+// };
+
+const themeBtn = document.getElementById('themeBtn');
+
+const isDark = () => document.body.classList.contains("dark");
+
+const updateButtonText = () => {
+    themeBtn.textContent = isDark() ? "☀️ Light Mode" : "🌙 Dark Mode";
 };
+
+const applyTheme = (theme) => {
+    if (theme === 'dark') {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+
+    updateButtonText();
+    localStorage.setItem("theme", theme);
+};
+
+const loadTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark'){
+        applyTheme("dark");
+    } else {
+        applyTheme("light");
+    }
+};
+
+loadTheme();
+
+const toggleTheme = () => {
+    applyTheme(isDark() ? "light" : "dark");
+};
+
+themeBtn.addEventListener('click', toggleTheme);

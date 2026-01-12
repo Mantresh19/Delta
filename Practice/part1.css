@@ -1,115 +1,50 @@
 * {
+    margin: 0;
     box-sizing: border-box;
 }
-body {
-    margin: 0;
-}
-.nav-bar {
-    height: 40px;
+.navbar {
+    height: 40px;   /* Original height = 56px Normally it's 40px*/
+    width: 100%;
     background-color: #242728;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 12px;
-
     padding: 0 10px;
 }
-
-.nav-left,
-.nav-right {
+.navbar-left {
+    height: 100%;
+    background-color: darkgreen;
     display: flex;
-    gap: 8px;
-    align-items: center;
-    
-    flex: 0 0 auto;
-}
-
-.nav-center {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    flex: 1 1 auto;
-    min-width: 0;
-    gap: 4.375rem;
-    color: white;
-    padding-left: 100px;
-    margin: 0;
-    /* margin: 0 auto;
-    padding-left: 50px;
-    gap: 65px; */
+    align-items: center;
+    gap: 5px;   /* Original gap = 8px but my gap = 5px*/
 }
-
-.nav-right {
-    display: flex;
-    padding-right: 10px;
-    gap: 5px;
-}
-
 .fb-icon {
     font-size: 27px;
-    background: #ffffff;
-    color: #1877f2;
-    border-radius: 50%;
+    background-color: white;
+    border-radius: 100px;
+    color: #0766ff;
 }
-
-.nav-logo,
-.nav-right-button,
-.nav-right-avatar {
-    background-color: #4c4c4c;
-    border-radius: 50%;
+.nav-search-wrap {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    height: 30px;
+    padding: 0 12px;
+    background-color: #3a3b3c;
+    border-radius: 999px;
 }
-
-.nav-logo,
-.nav-right-button {
-    height: 27px;
-    width: 27px;
-}
-
-.nav-search-border {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
 .nav-search-icon {
-    font-size: 12px;
-    color: #979797;
-    position: absolute;
-    left: 10px;
+    color: #b0b3b8;
+    font-size: 10px;
 }
-
-.nav-search-input {
-    height: 27px;
-    /* width: clamp(120px, 18vw, 160px);  */
-    width: 10rem;
-    padding: 0 10px 0 30px;
-    border-radius: 14px;
-    background-color: #333334;
-    color: #ffffff;
+.nav-search {
+    width: 120px;
     border: none;
     outline: none;
+    background: transparent;
+    color: #e4e6eb;
+    font-size: 10px;
 }
-
-.nav-right-avatar {
-    height: 30px;
-    width: 30px;
-}
-
-.nav-center{
-    padding-right: 165px;
-    color: white;
-}
-.nav-right-icon {
-    color: #ffffff;
-}
-
-.nav-center-icon:hover {
-    opacity: 1;
-}
-
-.nav-right-user {
-    font-size: 18px;
+.nav-search::placeholder {
+    color: #b0b3b8;
 }

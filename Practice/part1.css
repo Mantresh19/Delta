@@ -3,23 +3,26 @@
     box-sizing: border-box;
 }
 .navbar {
-    height: 40px;   /* Original height = 56px Normally it's 40px*/
+    height: 56px;   /* Original height = 56px Normally it's 40px*/
     width: 100%;
     background-color: #242728;
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0 15px;
 }
+
+/* Left Section */
+
 .navbar-left {
     height: 100%;
-    background-color: darkgreen;
+    /* background-color: darkgreen; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;   /* Original gap = 8px but my gap = 5px*/
 }
 .fb-icon {
-    font-size: 27px;
+    font-size: 40px;
     background-color: white;
     border-radius: 100px;
     color: #0766ff;
@@ -28,23 +31,65 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    height: 30px;
+    height: 39px;
     padding: 0 12px;
     background-color: #3a3b3c;
     border-radius: 999px;
 }
 .nav-search-icon {
     color: #b0b3b8;
-    font-size: 10px;
+    font-size: 15px;
 }
 .nav-search {
-    width: 120px;
+    width: 200px;
     border: none;
     outline: none;
     background: transparent;
     color: #e4e6eb;
-    font-size: 10px;
+    font-size: 15px;
 }
 .nav-search::placeholder {
     color: #b0b3b8;
+}
+
+/* Middle Section */
+
+.navbar-mid {
+    /* display: flex; */
+    /* background-color: yellow; */
+    margin-left: auto;
+    margin-right: 260px;
+    gap: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-center-icon {
+    font-size: 28px;
+    color: #b0b3b8;
+}
+
+/* Right End */
+
+.navbar-right {
+    /* background-color: #0766ff; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-right-icon {
+    font-size: 25px;
+    color: #b0b3b8;
+}
+
+.icon-background {
+    height: 47px;
+    width: 47px;
+    background-color: #3b3d3e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

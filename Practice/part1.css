@@ -8,7 +8,8 @@
     background-color: #242728;
     display: flex;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 0 12px;
+    align-items: center;
 }
 
 /* Left Section */
@@ -26,6 +27,7 @@
     background-color: white;
     border-radius: 100px;
     color: #0766ff;
+    min-width: 0; /* is a Flexbox/Grid fix that allows an element to shrink smaller than its content. */
 }
 .nav-search-wrap {
     display: flex;
@@ -41,7 +43,7 @@
     font-size: 15px;
 }
 .nav-search {
-    width: 200px;
+     width: 200px;
     border: none;
     outline: none;
     background: transparent;

@@ -173,3 +173,16 @@
 //         result.textContent = "Too low";
 //     } else {result.textContent = "Correct";}
 // });
+
+// Simple calculator
+
+const add = document.getElementById("add")
+const sub = document.getElementById("sub")
+const mul = document.getElementById("mul")
+const mod = document.getElementById("mod")
+let inp = document.querySelector("input")
+
+result = 0;
+
+
+

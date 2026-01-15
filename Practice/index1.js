@@ -174,15 +174,20 @@
 //     } else {result.textContent = "Correct";}
 // });
 
-// Simple calculator
+// let str = "abcde"
+// function reverse(str) {
+//     return str.split("").reverse().join("");
+// }
 
-const add = document.getElementById("add")
-const sub = document.getElementById("sub")
-const mul = document.getElementById("mul")
-const mod = document.getElementById("mod")
-let inp = document.querySelector("input")
+// let arr = []
+// function sum(arr) {
+//     return arr.reduce((a,b)=>a+b,0)s
+// }
 
-result = 0;
-
-
-
+// function sum(arr) {
+//     let total = 0;
+//     for (let i=0; i<arr.length; i++) {
+//         total = total + arr[i];
+//     }
+//     return total;
+// }

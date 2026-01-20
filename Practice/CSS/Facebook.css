@@ -2,13 +2,23 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root {
+    --nav-height: 56px;
+    --nav-padding-x: 12px;
+    --nav-bg: #242728;
+    --icon-muted: #b0b3b8;
+    --icon-active: #e4e6eb;
+    --accent: #0766ff;
+    --chip-bg: #3a3b3c;
+    --circle-bg: #3b3d3e;
+    --search-height: 39px;
+    --icon-btn: 40px;
+}
 .navbar {
-    height: 56px;
+    height: var(--nav-height);
     width: 100%;
-    background-color: #242728;
-    padding: 0 12px;
-    align-items: center;
-
+    background-color: var(--nav-bg);
+    padding: 0 var(--nav-padding-x);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -21,8 +31,8 @@
 .navbar-left {
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     flex: 0 1 auto;
     min-width: 0;
@@ -31,24 +41,24 @@
 }
 .fb-icon {
     font-size: 40px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 100px;
-    color: #0766ff;
+    color: var(--accent);
     min-width: 0;
 }
 .nav-search-wrap {
     display: flex;
     align-items: center;
     gap: 8px;
-    height: 39px;
+    height: var(--search-height);
     padding: 0 12px;
-    background-color: #3a3b3c;
+    background-color: var(--chip-bg);
     border-radius: 999px;
     flex: 0 1 auto;
     min-width: 0;
 }
 .nav-search-icon {
-    color: #b0b3b8;
+    color: var(--icon-muted);
     font-size: 15px;
 }
 .nav-search {
@@ -56,13 +66,13 @@
     border: none;
     outline: none;
     background: transparent;
-    color: #e4e6eb;
+    color: var(--icon-active);
     font-size: 15px;
     flex: 1 1 auto;
     min-width: 0;
 }
 .nav-search::placeholder {
-    color: #b0b3b8;
+    color: var(--icon-muted);
 }
 
 /* Middle Section */
@@ -78,10 +88,10 @@
 }
 .nav-center-icon {
     font-size: 24px;
-    color: #b0b3b8;
+    color: var(--icon-muted);
 }
 .dv-bg {
-    background-color: #3b3d3e;
+    background-color: var(--circle-bg);
 }
 
 /* Right End */
@@ -97,13 +107,13 @@
 
 .nav-right-icon {
     font-size: 22px;
-    color: #b0b3b8;
+    color: var(--icon-muted);
 }
 
 .icon-background {
-    height: 40px;
-    width: 40px;
-    background-color: #3b3d3e;
+    height: var(--icon-btn);
+    width: var(--icon-btn);
+    background-color: var(--circle-bg);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -121,7 +131,7 @@
 
 @media (max-width: 1260px){
   .nav-search-wrap{
-    width: 39px;
+    width: var(--search-height);
     padding: 0;
     justify-content: center;
     gap: 0;

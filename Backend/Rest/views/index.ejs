@@ -12,6 +12,8 @@
         <div class="div">
             <h3 class="user"> @<%= post.username %></h3>
             <h3 class="content"><%= post.content %></h3>
+            <br>
+            <a href="http://localhost:8080/posts/<%= post.id %>">See in detail</a>
         </div>
         <% } %>
 

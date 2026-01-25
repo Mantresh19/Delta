@@ -13,8 +13,13 @@ app.listen(port, () => {
 //     res.send(code)
 // })
 
-app.get("/:username/:id", (req, res) => {
-    let {username, id} = req.params
+app.get("/:username", (req, res) => {
+    let {username} = req.params;
     res.send(`this is the page of @${username}`)
+})
+
+app.get("/:username/:id", (req, res) => {
+    let {id} = req.params;
+    res.send(`id is ${id}`)
 })
 

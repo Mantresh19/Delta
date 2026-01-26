@@ -1,30 +1,22 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const app = express();
 
-let port = 3000
+let port = 8080;
 
 app.set("view engine", "ejs");
 
 app.listen(port, () => {
-    console.log(`Listening to port ${port}`)
+    console.log("Listening to porttttt")
 })
 
-// app.get("/:home", (req, res) => {
-//     console.log("New incomming request")
-//     let code = "<h1>Fruits</h1>"
-//     res.send(code)
+// app.use((req,res) => {
+//     console.log("req rec")
 // })
+
 app.get("/", (req, res) => {
+    res.send(`This is ${port}`)
+})
+
+app.get("/:home", (req, res) => {
     res.render("home.ejs")
 })
-
-app.get("/:username", (req, res) => {
-    let {username} = req.params;
-    res.send(`this is the page of @${username}`)
-})
-
-app.get("/:username/:id", (req, res) => {
-    let {id} = req.params;
-    res.send(`id is ${id}`)
-})
-

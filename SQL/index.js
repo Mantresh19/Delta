@@ -31,5 +31,3 @@ let getRandomUser= () => {
 }
 
 console.log(getRandomUser());
-
-// Test

@@ -10,14 +10,31 @@ const connection = await mysql.createConnection({
   password: 'SDE@f66ng'
 });
 
+let q = "INSERT INTO user (id, username, email, password) VALUES ?";
+let user = [
+  ["900a", "jkjak", "manatresh899@gmail.com", "SDE0a00f66ng"],
+  ["900r", "jkjkr", "mantresh899@gmail.comm", "SDE000f66ngg"]
+];
+
+// Test 
 try {
-  const [rows] = await connection.query("SHOW TABLES");
-  console.log(rows);
+  const [result] = await connection.query(q, user);
+  console.log("Inserted:", result);
   } catch (err) {
     console.log(err)
 } finally {
   await connection.end();
 }
+
+// Working method
+// try {
+//   const [rows] = await connection.query("SHOW TABLES");
+//   console.log(rows);
+//   } catch (err) {
+//     console.log(err)
+// } finally {
+//   await connection.end();
+// }
 
 connection.end();
 

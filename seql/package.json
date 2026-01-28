@@ -1,0 +1,16 @@
+{
+  "name": "seql",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Mantresh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.2.0",
+    "mysql2": "^3.16.2"
+  }
+}

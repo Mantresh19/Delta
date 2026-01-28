@@ -11,33 +11,34 @@ const connection = await mysql.createConnection({
 });
 
 // Insert random data
-let getRandomUser= () => {
+let getRandomUser = () => {
   return {
-    faker.datatype.uuid(),
-    faker.internet.username(),
-    faker.internet.email(),
-    faker.internet.password()
-  }
-}
+    id: faker.string.uuid(),
+    username: faker.internet.username(),
+    email: faker.internet.email(),
+    password: faker.internet.password()
+  };
+};
 
 console.log(getRandomUser());
 
-let q = "INSERT INTO user (id, username, email, password) VALUES ?";
+let q = "INSERT INTO `user` (id, username, email, password) VALUES ?";
 
 let data = [];
 for (let i=1; i<=100; i++) {
-   console.log(getRandomUser());
+   const user = getRandomUser();
+   data.push([user.id, user.username, user.email, user.password]);
 }
 
 // Test 
-// try {
-//   const [result] = await connection.query(q, user);
-//   console.log("Inserted:", result);
-//   } catch (err) {
-//     console.log(err)
-// } finally {
-//   await connection.end();
-// }
+try {
+  const [result] = await connection.query(q, [data]);
+  console.log("Inserted:", result.affectedRows);
+  } catch (err) {
+    console.log(err);
+} finally {
+  await connection.end();
+}
 
 // Working method
 // try {

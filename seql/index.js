@@ -1,5 +1,9 @@
 const { faker } = require('@faker-js/faker');
 const mysql = require('mysql2');
+const express = require("express");
+const app = express();
+
+const port = 8080;
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -8,14 +12,26 @@ const connection = mysql.createConnection({
   password: 'SDE@f66ng'
 });
 
-let q = "INSERT INTO user (id, username, email, password) VALUES ?";
-let users = [
-    ["123a", "Mantresh", "mantresh1999@gmail.com", "SDE@f66ng"]
-    ["123b", "Mantreshh", "mmantresh1999@gmail.com", "SSSDE@f66ng"]
-]
+let getRandomUser = () => {
+  return [
+    faker.string.uuid(),
+    faker.internet.username(),
+    faker.internet.email(),
+    faker.internet.password()
+  ];
+}
+
+let q = "INSERT INTO `user` (id, username, email, password) VALUES ?";
+
+let data = [];
+for(let i=1; i<=100; i++) {
+    data.push(getRandomUser())
+}
+
+// connection.end();
 
 try{
-    connection.query(q, [users], (err, result) => {
+    connection.query(q, [data], (err, result) => {
         if(err) throw err;
         console.log(result)
     })
@@ -23,13 +39,6 @@ try{
     console.log(err)
 }
 
-connection.end();
-
-let getRandomUser = () => {
-  return {
-    userId: faker.string.uuid(),
-    username: faker.internet.username(),
-    email: faker.internet.email(),
-    password: faker.internet.password()
-  };
-}
+app.listen("/", (req, res) => {
+    res.send
+})

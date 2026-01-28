@@ -1,6 +1,10 @@
 import { faker } from "@faker-js/faker";
 import mysql from "mysql2/promise";
 import express from "express";
+const path = require("path");
+
+app.set("view engine", "ejs");
+app.use("views", path.join(__dirname, "/views"));
 
 const app = express();
 const port = 8080;

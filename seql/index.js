@@ -34,7 +34,7 @@ app.get("/:user", (req, res) => {
 });
 
 app.get("/:user/data", (req, res) => {
-    let q = `SELECT count(*) FROM user`
+    let q = `SELECT * FROM user`
     try{
     connection.query(q, (err, users) => {
         if(err) throw err;
@@ -44,6 +44,21 @@ app.get("/:user/data", (req, res) => {
     console.log(err)
     res.send("Some error in DB")
 }
+})
+
+app.get("/user/data/:id/edit", (req, res) => {
+    let {id} = req.params;
+    let q = `SELECT * FROM WHERE id= '${id}'`
+    try{
+    connection.query(q, (err, users) => {
+        if(err) throw err;
+        res.render("showusers.ejs", {users})
+    })
+} catch (err) {
+    console.log(err)
+    res.send("Some error in DB")
+}
+    res.render("edit.ejs")
 })
 
 app.listen(port, () => {

@@ -16,12 +16,18 @@
             <th>Id</th>
             <th>Email</th>
             <th>Username</th>
+            <th>Edit</th>
         </tr>
         <% for (user of users) { %>
         <tr>
             <td> <%= user.id %> </td>
             <td> <%= user.email %> </td>
             <td> <%= user.username %> </td>
+            <td>
+                <form method="GET" action="/user/data/<%= user.id %>/edit">
+                    <button>Edit Username</button>
+                </form>
+            </td>
         </tr>
         <% } %>
     </table>

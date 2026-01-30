@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Testing</h1>
+    <h1>This profile will be edited: <%= user.email %></h1>
+    <form method="post" action="/user/data/<%= user.id %>?_method=PATCH">
+        <textarea name="username"> <%= user.username %></textarea>
+        <input type="password" name="password" placeholder="Enter Password">
+        <button>Edit</button>
+    </form>
 </body>
 </html>

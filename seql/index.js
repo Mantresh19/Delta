@@ -2,6 +2,12 @@ const { faker } = require('@faker-js/faker');
 const mysql = require('mysql2');
 const express = require("express");
 const app = express();
+const methodOverride = require("method-override")
+
+app.use(methodOverride("_method"))
+app.use(express.urlencoded({ extended: true }));
+// app.set("view engine", "ejs");
+// app.set("views", patch.join(__dirname, "/views"));
 
 const port = 8080;
 
@@ -48,17 +54,33 @@ app.get("/:user/data", (req, res) => {
 
 app.get("/user/data/:id/edit", (req, res) => {
     let {id} = req.params;
-    let q = `SELECT * FROM WHERE id= '${id}'`
+    let q = `SELECT * FROM user WHERE id='${id}'`
     try{
-    connection.query(q, (err, users) => {
+    connection.query(q, (err, result) => {
         if(err) throw err;
-        res.render("showusers.ejs", {users})
+        let user = result[0]
+        console.log(result)
+        res.render("edit.ejs", { user })
     })
 } catch (err) {
     console.log(err)
     res.send("Some error in DB")
 }
-    res.render("edit.ejs")
+})
+
+app.patch("/user/data/:id", (req, res) => {
+    let {id} = req.params;
+    let q = `SELECT * FROM user WHERE id='${id}'`
+    try{
+    connection.query(q, (err, result) => {
+        if(err) throw err;
+        let user = result[0]
+        res.send(user)
+    })
+} catch (err) {
+    console.log(err)
+    res.send("Some error in DB")
+}
 })
 
 app.listen(port, () => {
@@ -82,11 +104,3 @@ let getRandomUser = () => {
 }
 
 // connection.end();
-
-// Change1
-// Change2
-// Change3
-// Change4
-// Change5
-// Change6
-// Change7

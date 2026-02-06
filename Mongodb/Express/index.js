@@ -52,9 +52,11 @@ app.put("/chats/:id", async (req, res) => {
     let {id} = req.params;
     let{msg: newMsg} = req.body;
     let updatedChat = await Chat.findByIdAndUpdate(id, {msg: newMsg}, {runValidators: true, new: true})
-    console.log(updatedChat);
+    // console.log(updatedChat);
     res.redirect("/chats")
 })
+
+// Destroy Route
 
 app.get("/", (req, res) => {
     res.send("working")

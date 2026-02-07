@@ -57,6 +57,12 @@ app.put("/chats/:id", async (req, res) => {
 })
 
 // Destroy Route
+app.delete("/chats/:id", async (req, res) => {
+    let {id} = req.params;
+    let deletedChats = await Chat.findByIdAndDelete(id);
+    console.log(deletedChats);
+    res.redirect("/chats");
+});
 
 app.get("/", (req, res) => {
     res.send("working")
@@ -65,3 +71,6 @@ app.get("/", (req, res) => {
 app.listen(port, (req, res) => {
     console.log(`Listening to port: ${port}`)
 })
+
+// Ask runvalidators
+// Ask why id we use to update delete what id does do we access through id

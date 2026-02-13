@@ -44,6 +44,11 @@ app.get("/listings/:id", async(req, res) => {
     res.render("listings/show.ejs", {listing})
 })
 
+// Create Route
+app.post("/listings", async (req, res) => {
+    
+})
+
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
 //         title: "My New Villa",

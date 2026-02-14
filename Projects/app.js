@@ -67,5 +67,4 @@ app.post("/listings", async (req, res) => {
 app.listen(port, (req, res) => {
     console.log(`listening to port: ${port}`);
 });
-
-1
+3

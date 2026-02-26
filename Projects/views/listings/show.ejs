@@ -3,7 +3,7 @@
     <div class="col-8 offset-2">
     <h3>Listing Details</h3>
     <div class="card">
-        <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
+        <img src="<%= listing.image %>" class="card-img-top show-img mb-2 mt-2" alt="listing_image">
         <div class="card-body">
             <p class="card-text"><b><%= listing.title %></b> <br>
             <%= listing.description %> <br>
@@ -13,10 +13,12 @@
             </p>
         </div>
     </div>
-    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">Edit this listing</a>
-    <br><br>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-        <button class="btn btn-dark">Delete this listing</button>
-    </form>
+        <div class="show-btn">
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">Edit this listing</a>
+        <br><br>
+        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+            <button class="btn btn-dark">Delete this listing</button>
+        </form>
+        </div>
     </div>
 </div>

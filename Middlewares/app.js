@@ -46,6 +46,10 @@ app.get("/err", (req, res) => {
     abce = abce
 })
 
+app.get("/admin", (req, res) => {
+    throw new ExpressError(403, "ERROR OCCURED")
+})
+
 app.use((err, req, res, next) => {
     let { status = 500, message = "Some error occured" } = err;
     res.status(status).send(message)

@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 const path = require("path")
 const Chat = require("./models/chat")
 const methodOverride = require("method-override")
+const ExpressError = require("./ExpressError")
 const port = 8080;
 
 app.set("views", path.join(__dirname, "views"));
@@ -17,7 +18,7 @@ main()
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+  await mongoose.connect('mongodb://127.0.0.1:27017/fakewhatsapp');
 }
 
 app.get("/chats/new", (req, res) => {
@@ -35,6 +36,13 @@ app.post("/chats", async (req, res) => {
     await newChat.save()
     res.redirect("/chats")
 })
+
+// New - Show Route
+app.get("/chats/:id", async (req, res, next) => {
+    let { id } = req.params;
+    let chat = await Chat.findById(id);
+    res.render("edit.ejs", { chat });
+});
 
 app.get("/chats", async (req, res) => {
     let chats = await Chat.find()
@@ -66,6 +74,12 @@ app.delete("/chats/:id", async (req, res) => {
 
 app.get("/", (req, res) => {
     res.send("working")
+})
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    let {status = 500, message="SOME RANDOM SHIT OCCURED"} = err
+    res.status(status).send(message)
 })
 
 app.listen(port, (req, res) => {

@@ -1,4 +1,5 @@
-const express = require("express")
+const express = require("express");
+const ExpressError = require("./ExpressError");
 const app = express()
 let port = 5001;
 
@@ -19,15 +20,15 @@ let port = 5001;
 //     next()
 // })
 
-app.use("/api", (req, res, next) => {
+const checkToken = (req, res, next) => {
     let {token} = req.query
     if (token === "accessgranted") {
         next()
     }
-    res.send("ACCESS DENIED")
-})
+    throw new ExpressError(401, "ACCESS DENIED")
+}
 
-app.get("/api", (req, res) => {
+app.get("/api", checkToken, (req, res) => {
     res.send("data")
 })
 
@@ -46,9 +47,14 @@ app.get("/err", (req, res) => {
 })
 
 app.use((err, req, res, next) => {
-    console.log("-----ERROR-----")
-    next(err)
+    let { status = 500, message = "Some error occured" } = err;
+    res.status(status).send(message)
 })
+
+// app.use((err, req, res, next) => {
+//     console.log("-----ERROR2-----")
+//     next(err)
+// })
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`)

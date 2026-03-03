@@ -6,6 +6,8 @@ const Listing = require("./models/listing")
 const path = require("path")
 const methodoverride = require("method-override")
 const ejsMate = require("ejs-mate")
+const wrapAsync = require("./utils/wrapAsync")
+const ExpressError = require("./utils/ExpressError")
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust"
 
@@ -50,15 +52,11 @@ app.get("/listings/:id", async(req, res) => {
 })
 
 // Create Route
-app.post("/listings", async (req, res, next) => {
-    try {
+app.post("/listings", wrapAsync(async (req, res, next) => {
         const newListing = new Listing(req.body.listing)
         await newListing.save()
         res.redirect("/listings")
-    } catch(err) {
-       next(err)
-    }
-})
+}))
 
 // Edit Route
 app.get("/listings/:id/edit", async (req, res) => {
@@ -94,8 +92,13 @@ app.delete("/listings/:id", async(req, res) => {
 //     res.send("successful testing")
 // })
 
+app.all("*", (req, res, next) => {
+    next(new ExpressError(404, "Page not Found!"))
+})
+
 app.use((err, req, res, next) => {
-    res.send("Something went wrong!")
+    let{statusCode, message} = err
+    res.status(statusCode).send(message)
 })
 
 app.listen(port, (req, res) => {

@@ -35,6 +35,16 @@ app.get("/", (req, res) => {
     res.send("Hi, I am root")
 })
 
+const validateListing = (req, res, next) => {
+    let {error} = listingSchema.validate(req.body)
+    if(error) {
+        let errMsg = error.details.map((el) => el.message).join(",")
+        throw new ExpressError(400, result.error)
+    } else {
+        next()
+    }
+}
+
 // Index route
 app.get("/listings", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
@@ -54,12 +64,7 @@ app.get("/listings/:id", wrapAsync(async(req, res) => {
 }))
 
 // Create Route
-app.post("/listings", wrapAsync(async (req, res, next) => {
-    let result = listingSchema.validate(req.body)
-    console.log(result)
-    if(result.error) {
-        throw new ExpressError(400, result.error)
-    }
+app.post("/listings", validateListing, wrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.listing)
     await newListing.save()
     res.redirect("/listings")
@@ -72,10 +77,8 @@ app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
     res.render("listings/edit.ejs", {listing})
 }))
 
-app.put("/listings/:id", wrapAsync(async (req, res) => {
-    if (!req.body || !req.body.listing) {
-    throw new ExpressError(400, "Send valid data for listing");
-}
+// Update Route
+app.put("/listings/:id", validateListing, wrapAsync(async (req, res) => {
     let {id} = req.params;
     await Listing.findByIdAndUpdate(id, {...req.body.listing})
     res.redirect(`/listings/${id}`)

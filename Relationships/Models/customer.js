@@ -1,52 +1,25 @@
 const mongoose = require("mongoose")
-const {Schema} = mongoose
+const{Schema} = mongoose
 
 main()
-.then(() => console.log("Connection Successful"))
-.catch((err) => console.log(err))
+    .then(async () => {
+        console.log("connection successful");
+        try {
+            await addUsers();
+        } catch (err) {
+            console.error("Error in addUsers:", err);
+        } finally {
+            await mongoose.connection.close();
+            console.log("connection closed");
+        }
+    })
+    .catch((err) => console.log(err));
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/relationDemo")
+  await mongoose.connect('mongodb://127.0.0.1:27017/relationDemo');
 }
 
 const orderSchema = new Schema({
     item: String,
-    price: Number 
+    price: Number
 })
-
-const customerSchema = new Schema({
-    name: String,
-    orders: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Order"
-        }
-    ]
-})
-
-const Order = mongoose.model("Order", orderSchema)
-const Customer = mongoose.model("Customer", customerSchema)
-
-// const addOrders = async() => {
-//     let res = await Order.insertMany([
-//         {item: "Samosa", price: 12},
-//         {item: "Dosa", price: 40} 
-//     ])
-//     console.log(res)
-// }
-// addOrders()
-
-const addCustomers = async() => {
-    let cus1 = new Customer ({
-        name: "Pakya"
-    })
-    let order1 = await Order.findOne({item: "Samosa"})
-    let order2 = await Order.findOne({item: "Dosa"})
-
-    cus1.orders.push(order1)
-    cus1.orders.push(order2)
-
-    let result = await cus1.save()
-    console.log(result)
-}
-addCustomers()

@@ -27,7 +27,7 @@ const User = mongoose.model("User", userSchema);
 const Post = mongoose.model("Post", postSchema);
 
 const addData = async () => {
-    let user = await User.find({username: "rahulkumar"});
+    let user = await User.findOne({username: "rahulkumar"});
 
     let post2 = new Post({
         content: "Bye bye",

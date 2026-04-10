@@ -35,11 +35,20 @@ const addCust = async () => {
         name: "Karan Arjun"
     })
 
-const newOrder = newOrder({
-    item: "Pizza",
-    price: 250
-})
+const newOrder = new Order({
+        item: "Pizza",
+        price: 250
+    })
+
+    newCust.orders.push(newOrder);
+
+    await newOrder.save();
+    await newCust.save();
+
+    console.log("Added new customer")
 }
+
+addCust();
 
 // const addCustomer = async() => {
     // let cust1 = new Customer({

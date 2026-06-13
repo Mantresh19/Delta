@@ -24,28 +24,71 @@ const customerSchema = new Schema({
     ]
 })
 
+// customerSchema.pre("findOneAndDelete", async() => {
+//     console.log("PRE MIDDLEWARE");
+// })
+
+customerSchema.post("findOneAndDelete", async(customer) => {
+    if(customer.orders.length) {
+        let res = await Order.deleteMany({ _id: { $in: customer.orders }});
+        console.log(res);
+    }
+})
+
 const Order = mongoose.model("Order", orderSchema);
 const Customer = mongoose.model("Customer", customerSchema);
 
-const addCustomer = async() => {
-    // let cust1 = new Customer({
-    //     name: "Rahul Kumar"
-    // });
+// Functions 
+const findCustomer = async () => {
+    let result = await Customer.find({}).populate("orders");
+    console.log(result[0]);
+};
 
-    // let order1 = await Order.findOne({ item: "Samosa" });
-    // let order2 = await Order.findOne({ item: "Soke" });
+const addCust = async() => {
+    let newCust = new Customer({
+        name: "Karan Arjun",
+    });
 
-    // cust1.orders.push(order1);
-    // cust1.orders.push(order2);
+    let newOrder = new Order({
+        item: "Pijja",
+        price: 250
+    });
 
-    // let result = await cust1.save();
-    // console.log(result);
+    newCust.orders.push(newOrder);
 
-    let res = await Customer.find({});
-    console.log(res);
-}
+    await newOrder.save();
+    await newCust.save();
 
-addCustomer();
+    console.log("Added a new customer");
+};
+
+const delCust = async() => {
+    let data = await Customer.findByIdAndDelete();
+    console.log(data);
+};
+
+// addCust();
+delCust();
+
+// const addCustomer = async() => {
+//     // let cust1 = new Customer({
+//     //     name: "Rahul Kumar"
+//     // });
+
+//     // let order1 = await Order.findOne({ item: "Samosa" });
+//     // let order2 = await Order.findOne({ item: "Soke" });
+
+//     // cust1.orders.push(order1);
+//     // cust1.orders.push(order2);
+
+//     // let result = await cust1.save();
+//     // console.log(result);
+
+//     let res = await Customer.find({});
+//     console.log(res);
+// }
+
+// addCustomer();
 
 // const addOrders = async() => {
 //     let res = await Order.insertMany([

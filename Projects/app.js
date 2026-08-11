@@ -8,7 +8,7 @@ const methodoverride = require("method-override")
 const ejsMate = require("ejs-mate")
 const wrapAsync = require("./utils/wrapAsync")
 const ExpressError = require("./utils/ExpressError")
-const {listingSchema} = require("./schema")
+const {listingSchema, reviewSchema} = require("./schema")
 const Review = require("./models/review")
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust"
@@ -46,6 +46,16 @@ const validateListing = (req, res, next) => {
     }
 }
 
+const validateReview = (req, res, next) => {
+    let {error} = reviewSchema.validate(req.body)
+    if(error) {
+        let errMsg = error.details.map((el) => el.message).join(",")
+        throw new ExpressError(400, result.error)
+    } else {
+        next()
+    }
+}
+
 // Index route
 app.get("/listings", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
@@ -60,7 +70,7 @@ app.get("/listings/new", (req, res) => {
 // Show Route
 app.get("/listings/:id", wrapAsync(async(req, res) => {
     let {id} = req.params;
-    const listing = await Listing.findById(id)
+    const listing = await Listing.findById(id).populate("reviews");
     res.render("listings/show.ejs", {listing})
 }))
 
@@ -94,7 +104,7 @@ app.delete("/listings/:id", wrapAsync(async(req, res) => {
 }))
 
 // Reviews (EX)
-app.post("/listings/:id/reviews", async(req, res) => {
+app.post("/listings/:id/reviews", validateReview, wrapAsync(async(req, res) => {
     let listing = await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
 
@@ -106,7 +116,7 @@ app.post("/listings/:id/reviews", async(req, res) => {
     console.log("new review saved")
     // res.send("new review saved")
     res.redirect(`/listings/${listing._id}`)
-})
+}))
 
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({

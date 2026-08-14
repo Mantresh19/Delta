@@ -54,7 +54,7 @@ const validateReview = (req, res, next) => {
     } else {
         next()
     }
-} 
+}
 
 // Index route
 app.get("/listings", wrapAsync(async (req, res) => {
@@ -117,6 +117,9 @@ app.post("/listings/:id/reviews", validateReview, wrapAsync(async(req, res) => {
     // res.send("new review saved")
     res.redirect(`/listings/${listing._id}`)
 }))
+
+// Delete Reviews Route
+
 
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({

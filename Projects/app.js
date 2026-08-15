@@ -95,7 +95,7 @@ app.put("/listings/:id", validateListing, wrapAsync(async (req, res) => {
     res.redirect(`/listings/${id}`)
 }))
 
-// Delete Route
+// Delete Listing Route
 app.delete("/listings/:id", wrapAsync(async(req, res) => {
     let {id} = req.params
     let deletedListing = await Listing.findByIdAndDelete(id)

@@ -106,7 +106,7 @@ app.delete("/listings/:id", wrapAsync(async(req, res) => {
 // Reviews (EX)
 app.post("/listings/:id/reviews", validateReview, wrapAsync(async(req, res) => {
     let listing = await Listing.findById(req.params.id);
-    let newReview = new Review(req.body.review);
+    let newReview = new Review(req.body.review);z
 
     listing.reviews.push(newReview);
 

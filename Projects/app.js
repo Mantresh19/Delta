@@ -2,15 +2,13 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const port = 8080;
-const Listing = require("./models/listing")
 const path = require("path")
 const methodoverride = require("method-override")
 const ejsMate = require("ejs-mate")
-const wrapAsync = require("./utils/wrapAsync")
 const ExpressError = require("./utils/ExpressError")
-const {listingSchema, reviewSchema} = require("./schema")
-const Review = require("./models/review")
+
 const listings = require("./routes/listing");
+const reviews = require("./routes/review");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust"
 
@@ -38,6 +36,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/listings", listings)
+app.use("/listings/:id/reviews", reviews)
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page not Found!"))

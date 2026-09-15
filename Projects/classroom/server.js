@@ -4,11 +4,15 @@ const users = require("./routes/user")
 const posts = require("./routes/post")
 const session = require("express-session") 
 
-app.use(session({secret: "supersecretcookie"}))
+app.use(session({secret: "supersecretcookie", resave: false, saveUninitialized: true}))
 
-app.get("/test", (req, res) => {
-    res.send("Test successful")
+app.get("/reqcount", (req, res) => {
+    res.send(`You sent a request x times`)
 })
+
+// app.get("/test", (req, res) => {
+//     res.send("Test successful")
+// })
 
 // const cookieParser = require("cookie-parser")
 

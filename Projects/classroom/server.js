@@ -4,11 +4,20 @@ const users = require("./routes/user")
 const posts = require("./routes/post")
 const session = require("express-session") 
 
-app.use(session({secret: "supersecretcookie", resave: false, saveUninitialized: true}))
+const sessionOptions = {
+    secret: "supersecretcookie", resave: false, saveUninitialized: true
+}
 
-app.get("/reqcount", (req, res) => {
-    res.send(`You sent a request x times`)
-})
+app.use(session(sessionOptions));
+
+// app.get("/reqcount", (req, res) => {
+//     if(req.session.count) {
+//         req.session.count++
+//     } else {
+//         req.session.count = 1;
+//     }
+//     res.send(`You sent a request ${req.session.count} times`)
+// })
 
 // app.get("/test", (req, res) => {
 //     res.send("Test successful")

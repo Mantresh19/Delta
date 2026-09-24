@@ -3,12 +3,26 @@ const app = express();
 const users = require("./routes/user")
 const posts = require("./routes/post")
 const session = require("express-session") 
+const flash = require("connect-flash")
 
 const sessionOptions = {
-    secret: "supersecretcookie", resave: false, saveUninitialized: true
+    secret: "supersecretcookie", 
+    resave: false, 
+    saveUninitialized: true
 }
 
 app.use(session(sessionOptions));
+
+app.get("/register", (req, res) => {
+    let {name = "Random"} = req.query
+    req.session.name = name;
+    req.flash("success", "user registered successfully")
+    res.redirect("/hello")
+})
+
+app.get("/hello", (req, res) => {
+    res.send(`Hello ${req.session.name}`)
+})
 
 // app.get("/reqcount", (req, res) => {
 //     if(req.session.count) {

@@ -3,7 +3,12 @@ const app = express();
 const users = require("./routes/user")
 const posts = require("./routes/post")
 const session = require("express-session") 
-const flash = require("connect-flash")
+const flash = require("connect-flash");
+const { name } = require("ejs");
+const path = require("path")
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"))
 
 const sessionOptions = {
     secret: "supersecretcookie", 
@@ -21,7 +26,7 @@ app.get("/register", (req, res) => {
 })
 
 app.get("/hello", (req, res) => {
-    res.send(`Hello ${req.session.name}`)
+    res.render("page.ejs", {name: req.session.name});
 })
 
 // app.get("/reqcount", (req, res) => {
